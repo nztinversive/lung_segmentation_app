@@ -1,0 +1,22 @@
+# Lung Segmentation with UNet using PyTorch
+This repository contains code for lung segmentation using a UNet model implemented in PyTorch. Lung segmentation is the process of separating the lungs from the rest of the chest in a chest X-ray image. This is useful for various medical imaging tasks, such as identifying lung diseases or abnormalities.
+
+## Dataset
+The ChestXrayDataset class defined in dataset.py is a custom dataset class that loads the ChestXray dataset. The dataset is organized into subfolders for each patient, each containing an image of the patient's chest X-ray and a corresponding mask indicating which parts of the image correspond to the lungs.
+
+## Model
+The UNet class defined in model.py implements the UNet architecture for image segmentation. The UNet model consists of an encoder and a decoder, where the encoder downsamples the input image and the decoder upsamples it to the original size. The output of the UNet model is a binary mask indicating which parts of the input image correspond to the lungs.
+
+## Training
+The train_model function defined in train.py trains the UNet model using the binary cross-entropy loss and the Adam optimizer. During training, the model is fed batches of images and corresponding masks from the training dataset. The loss is computed and backpropagated through the network to update the model's parameters.
+
+## Usage
+To train the UNet model, run the train.py script. The num_epochs variable can be set to change the number of training epochs. After training, the model is saved to a file named lung_segmentation_model.pth.
+
+Dependencies
+Python 3.x
+PyTorch
+NumPy
+OpenCV
+Acknowledgments
+The ChestXray dataset used in this repository is available at https://nihcc.app.box.com/v/ChestXray-NIHCC. The UNet architecture is described in the paper "U-Net: Convolutional Networks for Biomedical Image Segmentation" by Ronneberger et al. (2015).
